@@ -1,0 +1,10 @@
+{
+    "name": "aws_iot_demo",
+    "memory": 128,
+    "runtime": "nodejs4.3",
+    "handler": "lib.default",
+    "hooks": {
+        "build": "../../build-fn.sh",
+        "clean": "rm -rf lib node_modules project.json"
+    }
+}
