@@ -1,23 +1,20 @@
+const nodeExternals = require("webpack-node-externals");
+
 module.exports = {
-    entry: {
-        index: "./index.js",
-        "update-device-shadow": "./update-device-shadow.js",
-    },
+    entry: "./index.js",
+    target: "node",
     output: {
         path: "./lib",
-        filename: "[name].js",
+        filename: "index.js",
         libraryTarget: "commonjs2"
     },
     module: {
-        noParse: [
-            /node_modules/
-        ],
         loaders: [
             {
                 test: /\.js$/,
                 loader: "babel",
-                exclude: [/node_modules/]
             },
-        ]
+        ],
     },
+    externals: [nodeExternals()],
 };
