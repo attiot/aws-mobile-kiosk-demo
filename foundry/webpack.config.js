@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
 const _root = path.resolve(__dirname);
@@ -33,6 +34,11 @@ const plugins = [
         /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
         __dirname
     ),
+
+    new CopyWebpackPlugin([{
+        from: "assets",
+        to: "assets",
+    }]),
 ];
 
 if (process.env.MINIFY) {
