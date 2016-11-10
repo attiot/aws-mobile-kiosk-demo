@@ -1,0 +1,21 @@
+{
+  "name": "att-iot-demo",
+  "version": "1.0.0",
+  "description": "Maybe fill this in some time",
+  "main": "webpack.config.js",
+  "author": "Andrew Crites <acrites@mobiquityinc.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.9.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "webpack": "2.1.0-beta.25",
+    "webpack-node-externals": "^1.5.4"
+  }
+}

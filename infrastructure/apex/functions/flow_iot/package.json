@@ -1,0 +1,16 @@
+{
+  "name": "flow_iot",
+  "version": "1.0.0",
+  "description": "Flow > IoT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apex.js": "^2.0.0",
+    "aws-sdk": "^2.4.9",
+    "babel-runtime": "^6.9.2"
+  }
+}
