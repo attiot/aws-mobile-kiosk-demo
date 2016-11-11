@@ -1,0 +1,39 @@
+{
+  "scripts": {
+    "start": "DEV_SERVER=1 webpack-dev-server --inline --progress --port 8080",
+    "build": "rimraf dist && DEVTOOL=source-map PUBLIC_PATH=/ MINIFY=1 HASH_FILES=1 webpack --progress --profile --bail"
+  },
+  "dependencies": {
+    "@angular/common": "^2.1.2",
+    "@angular/compiler": "^2.1.2",
+    "@angular/core": "^2.1.2",
+    "@angular/platform-browser": "^2.1.2",
+    "@angular/platform-browser-dynamic": "^2.1.2",
+    "aws4": "^1.5.0",
+    "core-js": "^2.4.1",
+    "json-loader": "^0.5.4",
+    "ng2-mqtt": "file:../../../personal/ng2-mqtt",
+    "querystring-browser": "^1.0.4",
+    "rxjs": "^5.0.0-rc.2",
+    "zone.js": "^0.6.26"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.46",
+    "angular2-template-loader": "^0.6.0",
+    "copy-webpack-plugin": "^4.0.0",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.24.1",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^1.1.0",
+    "typescript": "^2.0.8",
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

@@ -5,3 +5,6 @@ Code for the Mobile Kiosk at re:Invent
 
 ### `infrastructure`
 Contains all IaC and lambda function definition and build code.
+
+### `foundry`
+Code for the web UI
