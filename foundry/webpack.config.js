@@ -79,10 +79,17 @@ module.exports = {
         "app": "./app/main.ts"
     },
     resolve: {
-        extensions: ["*", ".js", ".ts"]
+        extensions: [".js", ".ts"],
+        alias: {
+            "querystring": "querystring-browser",
+        },
     },
     module: {
         loaders: [
+            {
+                test: /\.json$/,
+                loader: "json"
+            },
             {
                 test: /\.ts$/,
                 loaders: ["ts", "angular2-template-loader"]

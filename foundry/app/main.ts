@@ -10,4 +10,3 @@ if (process.env.ENABLE_PROD_MODE) {
 
 const platform = platformBrowserDynamic();
 platform.bootstrapModule(AppModule);
-
