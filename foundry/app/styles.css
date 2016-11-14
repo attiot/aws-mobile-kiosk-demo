@@ -1,3 +1,37 @@
 body {
+    font-weight: normal;
     background-color: #3591C0;
+    font-family: Brandon;
+    color: white;
+    padding: 40px 120px 10px 120px;
+}
+
+.inventory-title {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.inventory-list {
+    list-style-type: none;
+}
+
+.inventory {
+    margin-top: 25px;
+}
+
+.inventory img {
+    vertical-align: middle;
+    margin-right: 25px;
+    width: 70px;
+    height: auto;
+}
+
+.device-name {
+    font-weight: normal;
+    display: inline-block;
+    white-space: pre-wrap;
+    vertical-align: middle;
+    margin: 0;
+    margin-right: 25px;
+    min-width: 130px;
 }

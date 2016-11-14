@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LockerService } from './locker.service';
 
 const devices = {
-    starterKit: 'AT&T IOT starter kit',
-    fireStick: 'Amazon FireStick',
-    echoDot: 'Amazon Echo Dot',
+    starterKit: 'AT&T IOT\nstarter kit',
+    fireStick: 'Amazon\nFireStick',
+    echoDot: 'Amazon Echo\nDot',
 };
 
 @Component({

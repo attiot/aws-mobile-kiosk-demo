@@ -1,5 +1,5 @@
 <section class=inventory>
-    <img src="">
-    <h2>{{deviceName}}</h2>
+    <img [src]="'assets/device-images/' + deviceKey + '.png'">
+    <h2 class=device-name>{{deviceName}}</h2>
     <span>{{deviceList[deviceKey]}}</span>
 </section>
