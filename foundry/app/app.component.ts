@@ -7,6 +7,8 @@ import { sign } from 'aws4';
     templateUrl: './app.component.html',
 })
 export class AppComponent {
+    client: Paho.MQTT.Client;
+
     constructor() {
         const requestUrl = sign({
             service: 'iotdevicegateway',
@@ -14,13 +16,17 @@ export class AppComponent {
             path: '/mqtt',
             signQuery: true,
         });
-        const paho = new Paho.MQTT.Client(`wss://${process.env.IOT_HOST}${requestUrl.path}`, '' + Math.random());
-        paho.connect({
-            onSuccess() {
-                console.log('well done!');
+        this.client = new Paho.MQTT.Client(`wss://${process.env.IOT_HOST}${requestUrl.path}`, '' + Math.random());
+
+        this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
+            console.log(message);
+        };
+        this.client.onConnectionLost = (response: Object) => console.log('Connection lost', response);
+
+        this.client.connect({
+            onSuccess: () => {
             },
-            onFailure() {
-                console.log(arguments);
+            onFailure: () => {
             },
         });
     }
