@@ -12,4 +12,15 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.lockerService.init();
     }
+
+    calculateBatteryBg() {
+        if (this.lockerService.batteryLife < 50) {
+            return 'yellow';
+        }
+        else if (this.lockerService.batteryLife < 20) {
+            return 'red';
+        }
+
+        return 'green';
+    }
 }
