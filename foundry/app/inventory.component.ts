@@ -17,8 +17,6 @@ export class InventoryComponent implements OnInit, OnChanges {
     @Input() deviceKey: string;
     private deviceName: string;
     private deviceList: Object;
-    private oldDeviceList: Object = {};
-    private childViewLoaded: boolean = false;
     private circleOptions: ShapeOptions = {
         color: '#FFEA82',
         trailColor: '#eee',
@@ -41,27 +39,14 @@ export class InventoryComponent implements OnInit, OnChanges {
     constructor(private lockerService: LockerService) { }
     ngOnInit(): void {
         this.deviceName = devices[this.deviceKey];
-        this.deviceList = this.lockerService.deviceList;
-        /*
-        setInterval(() => {
-            this.circleComp.animate(this.deviceList[this.deviceKey]);
-        }, 5000);
-       */
     }
 
-    ngOnChanges(changes) { }
-
-    ngDoCheck() {
-        if (!this.childViewLoaded) {
-            return;
-        }
-        if (this.oldDeviceList[this.deviceKey] !== this.deviceList[this.deviceKey]) {
-            this.circleComp.animate(this.deviceList[this.deviceKey]);
-            this.oldDeviceList[this.deviceKey] = this.deviceList[this.deviceKey];
-        }
-    }
+    ngOnChanges(changes: any) { }
 
     ngAfterViewInit() {
-        this.childViewLoaded = true;
+        this.lockerService.lockerData$.subscribe(data => {
+            this.deviceList = data.deviceList;
+            this.circleComp.animate(this.deviceList[this.deviceKey]);
+        });
     }
 }

@@ -13,11 +13,10 @@ export class AppComponent implements OnInit {
         this.lockerService.init();
     }
 
-    calculateBatteryBg() {
-        if (this.lockerService.batteryLife < 50) {
+    calculateBatteryBg(batteryLife: number) {
+        if (batteryLife < 50) {
             return 'yellow';
-        }
-        else if (this.lockerService.batteryLife < 20) {
+        } else if (batteryLife < 20) {
             return 'red';
         }
 

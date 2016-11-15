@@ -11,7 +11,8 @@
         <h1 class=title>Settings</h1>
         <dl class=settings-list>
             <dt>Battery:</dt>
-            <dd><div class=battery-life [style.width]=lockerService.batteryLife [style.backgroundColor]="calculateBatteryBg()"></div></dd>
+            <dd><div class=battery-life [style.width]="lockerService.batteryLife"
+                [style.backgroundColor]="calculateBatteryBg(lockerService.batteryLife)"></div></dd>
 
             <dt>Status: <span class=led-status>{{lockerService.ledStatus}}</span></dt>
             <dd (click)="lockerService.toggleLock()">lock</dd>
