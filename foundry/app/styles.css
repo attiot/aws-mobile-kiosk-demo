@@ -71,7 +71,8 @@ body {
 
 .battery-life {
     display: inline-block;
-    height: 36px;
+    height: 31.5px;
+    margin: 2px;
 }
 
 .circle-container {
@@ -80,4 +81,29 @@ body {
     display: inline-block;
     vertical-align: middle;
     position: relative;
+}
+
+.locker {
+    float: right;
+}
+
+.locker-container {
+    position: relative;
+}
+
+.locker-item-starterKit {
+    position: absolute;
+    top: 25px;
+    left: 60px;
+}
+.locker-item-fireStick {
+    position: absolute;
+    top: 370px;
+    left: 35px;
+}
+
+.locker-item-echoDot {
+    position: absolute;
+    top: 362px;
+    left: 238px;
 }

@@ -14,10 +14,11 @@ export class AppComponent implements OnInit {
     }
 
     calculateBatteryBg(batteryLife: number) {
+        if (batteryLife < 20) {
+            return 'red';
+        }
         if (batteryLife < 50) {
             return 'yellow';
-        } else if (batteryLife < 20) {
-            return 'red';
         }
 
         return 'green';

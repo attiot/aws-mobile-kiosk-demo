@@ -1,0 +1,9 @@
+<div class="locker-container">
+    <img [src]="'assets/locker-' + lockerService.openStatus + '.png'">
+
+    <div *ngFor="let device of (lockerService.lockerData$ | async)?.deviceList | mapToIterable">
+        <div *ngIf="device.val">
+            <img [class]="'locker-item-' + device.key" [src]="'assets/locker-images/' + lockerService.openStatus + '/' + device.key + '.png'">
+        </div>
+    </div>
+</div>

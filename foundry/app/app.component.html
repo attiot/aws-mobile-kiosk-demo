@@ -1,4 +1,8 @@
 <main>
+    <section class=locker>
+        <locker></locker>
+    </section>
+
     <h1 class=title>Inventory</h1>
 
     <ul class=inventory-list>
@@ -11,11 +15,16 @@
         <h1 class=title>Settings</h1>
         <dl class=settings-list>
             <dt>Battery:</dt>
-            <dd><div class=battery-life [style.width]="lockerService.batteryLife"
-                [style.backgroundColor]="calculateBatteryBg(lockerService.batteryLife)"></div></dd>
+            <dd style="position: relative;">
+                <img src="../assets/empty-battery.png" style="position: absolute; z-index: -1;">
+                <div class=battery-life [style.width]="lockerService.batteryLife + 8"
+                [style.backgroundColor]="calculateBatteryBg(lockerService.batteryLife)"></div>
+            </dd>
 
             <dt>Status: <span class=led-status>{{lockerService.ledStatus}}</span></dt>
-            <dd (click)="lockerService.toggleLock()">lock</dd>
+            <dd (click)="lockerService.toggleLock()">
+                <img [src]="'assets/' + lockerService.ledStatus + '.png'">
+            </dd>
 
             <dt>Power Save</dt>
             <dd>
