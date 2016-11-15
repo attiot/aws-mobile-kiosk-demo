@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, OnChanges } from '@angular/core';
 import { LockerService } from './locker.service';
 import { ShapeOptions, CircleProgressComponent } from 'angular2-progressbar';
 
@@ -12,11 +12,13 @@ const devices = {
     selector: 'inventory',
     templateUrl: './inventory.component.html',
 })
-export class InventoryComponent implements OnInit {
+export class InventoryComponent implements OnInit, OnChanges {
     @ViewChild(CircleProgressComponent) circleComp: CircleProgressComponent;
     @Input() deviceKey: string;
     private deviceName: string;
-    private deviceList: number = 0;
+    private deviceList: Object;
+    private oldDeviceList: Object = {};
+    private childViewLoaded: boolean = false;
     private circleOptions: ShapeOptions = {
         color: '#FFEA82',
         trailColor: '#eee',
@@ -40,8 +42,26 @@ export class InventoryComponent implements OnInit {
     ngOnInit(): void {
         this.deviceName = devices[this.deviceKey];
         this.deviceList = this.lockerService.deviceList;
+        /*
         setInterval(() => {
             this.circleComp.animate(this.deviceList[this.deviceKey]);
         }, 5000);
+       */
+    }
+
+    ngOnChanges(changes) { }
+
+    ngDoCheck() {
+        if (!this.childViewLoaded) {
+            return;
+        }
+        if (this.oldDeviceList[this.deviceKey] !== this.deviceList[this.deviceKey]) {
+            this.circleComp.animate(this.deviceList[this.deviceKey]);
+            this.oldDeviceList[this.deviceKey] = this.deviceList[this.deviceKey];
+        }
+    }
+
+    ngAfterViewInit() {
+        this.childViewLoaded = true;
     }
 }
