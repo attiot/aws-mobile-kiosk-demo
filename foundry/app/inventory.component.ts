@@ -18,7 +18,7 @@ export class InventoryComponent implements OnInit, OnChanges {
     private deviceName: string;
     private deviceList: Object;
     private circleOptions: ShapeOptions = {
-        color: '#FFEA82',
+        color: '#ffffff',
         trailColor: '#eee',
         trailWidth: 1,
         duration: 1400,
