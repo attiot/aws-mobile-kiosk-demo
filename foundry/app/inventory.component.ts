@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { LockerService } from './locker.service';
+import { ShapeOptions, CircleProgressComponent } from 'angular2-progressbar';
 
 const devices = {
     starterKit: 'AT&T IOT\nstarter kit',
@@ -12,13 +13,35 @@ const devices = {
     templateUrl: './inventory.component.html',
 })
 export class InventoryComponent implements OnInit {
+    @ViewChild(CircleProgressComponent) circleComp: CircleProgressComponent;
     @Input() deviceKey: string;
     private deviceName: string;
     private deviceList: number = 0;
+    private circleOptions: ShapeOptions = {
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        duration: 1400,
+        text: {
+            autoStyleContainer: false,
+        },
+        easing: 'bounce',
+        strokeWidth: 6,
+        from: { color: '#FFEA82', a: 0 },
+        to: { color: '#ED6A5A', a: 1 },
+        // Set default step function for all animate calls
+        step: function(state: any, circle: any) {
+            circle.path.setAttribute('stroke', state.color);
+            circle.setText(Math.round(circle.value()));
+        }
+    };
 
     constructor(private lockerService: LockerService) { }
     ngOnInit(): void {
         this.deviceName = devices[this.deviceKey];
         this.deviceList = this.lockerService.deviceList;
+        setInterval(() => {
+            this.circleComp.animate(this.deviceList[this.deviceKey]);
+        }, 5000);
     }
 }

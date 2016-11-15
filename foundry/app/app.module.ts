@@ -4,8 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory.component';
 
+import { ProgressBarModule } from 'angular2-progressbar';
+
 @NgModule({
-    imports: [ BrowserModule ],
+    imports: [ BrowserModule, ProgressBarModule ],
     declarations: [ AppComponent, InventoryComponent ],
     bootstrap: [ AppComponent ]
 })
