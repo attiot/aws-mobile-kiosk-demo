@@ -1,3 +1,28 @@
 <main>
-    You are hearing me talk
+    <h1 class=title>Inventory</h1>
+
+    <ul class=inventory-list>
+        <li><inventory [deviceKey]="'starterKit'"></inventory></li>
+        <li><inventory [deviceKey]="'fireStick'"></inventory></li>
+        <li><inventory [deviceKey]="'echoDot'"></inventory></li>
+    </ul>
+
+    <section class=settings>
+        <h1 class=title>Settings</h1>
+        <dl class=settings-list>
+            <dt>Battery:</dt>
+            <dd><div class=battery-life [style.width]="lockerService.batteryLife"
+                [style.backgroundColor]="calculateBatteryBg(lockerService.batteryLife)"></div></dd>
+
+            <dt>Status: <span class=led-status>{{lockerService.ledStatus}}</span></dt>
+            <dd (click)="lockerService.toggleLock()">lock</dd>
+
+            <dt>Power Save</dt>
+            <dd>
+                H <input type=number value={{lockerService.saveTimerHour}}>
+                M <input type=number value={{lockerService.saveTimerMin}}>
+                <button>Set</button>
+            </dd>
+        </dl>
+    </section>
 </main>

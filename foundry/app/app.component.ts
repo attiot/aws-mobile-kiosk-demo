@@ -1,27 +1,25 @@
-import { Component } from '@angular/core';
-import { Paho } from 'ng2-mqtt';
-import { sign } from 'aws4';
+import { Component, OnInit } from '@angular/core';
+import { LockerService } from './locker.service';
 
 @Component({
     selector: 'foundry',
     templateUrl: './app.component.html',
+    providers: [LockerService]
 })
-export class AppComponent {
-    constructor() {
-        const requestUrl = sign({
-            service: 'iotdevicegateway',
-            host: process.env.IOT_HOST,
-            path: '/mqtt',
-            signQuery: true,
-        });
-        const paho = new Paho.MQTT.Client(`wss://${process.env.IOT_HOST}${requestUrl.path}`, '' + Math.random());
-        paho.connect({
-            onSuccess() {
-                console.log('well done!');
-            },
-            onFailure() {
-                console.log(arguments);
-            },
-        });
+export class AppComponent implements OnInit {
+    constructor(private lockerService: LockerService) { }
+
+    ngOnInit(): void {
+        this.lockerService.init();
+    }
+
+    calculateBatteryBg(batteryLife: number) {
+        if (batteryLife < 50) {
+            return 'yellow';
+        } else if (batteryLife < 20) {
+            return 'red';
+        }
+
+        return 'green';
     }
 }

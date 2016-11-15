@@ -1,3 +1,83 @@
+* {
+    box-sizing: border-box;
+}
 body {
+    font-weight: normal;
     background-color: #3591C0;
+    font-family: Brandon;
+    color: white;
+    padding: 40px 120px 10px 120px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.inventory-list {
+    list-style-type: none;
+}
+
+.inventory {
+    margin-top: 25px;
+}
+
+.inventory img {
+    vertical-align: middle;
+    margin-right: 25px;
+    width: 70px;
+    height: auto;
+}
+
+.device-name {
+    text-transform: none;
+    font-weight: normal;
+    display: inline-block;
+    white-space: pre-wrap;
+    vertical-align: middle;
+    margin: 0;
+    margin-right: 25px;
+    min-width: 130px;
+}
+
+.settings {
+    position: fixed;
+    bottom: 0;
+}
+
+.settings .title {
+    margin: 0;
+}
+
+.settings-list {
+    border-top: 1px solid rgba(215, 215, 215, .5);
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.settings-list dt {
+    display: inline-block;
+    vertical-align: middle;
+}
+.settings-list dd {
+    display: inline;
+    vertical-align: middle;
+}
+
+.settings-list dd::after {
+    display: block;
+    content: "";
+}
+
+.battery-life {
+    display: inline-block;
+    height: 36px;
+}
+
+.circle-container {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
 }
