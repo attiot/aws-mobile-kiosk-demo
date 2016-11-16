@@ -19,16 +19,16 @@ export class InventoryComponent implements OnInit, OnChanges {
     private deviceList: Object;
     private circleOptions: ShapeOptions = {
         color: '#ffffff',
-        trailColor: '#eee',
-        trailWidth: 1,
-        duration: 1400,
+        trailColor: 'rgba(0,0,0,.2)',
+        trailWidth: 8,
+        duration: 400,
         text: {
             autoStyleContainer: false,
         },
-        easing: 'bounce',
+        easing: 'linear',
         strokeWidth: 6,
-        from: { color: '#FFEA82', a: 0 },
-        to: { color: '#ED6A5A', a: 1 },
+        from: { color: '#FB0101', a: 0 },
+        to: { color: '#02C102', a: 1 },
         // Set default step function for all animate calls
         step: function(state: any, circle: any) {
             circle.path.setAttribute('stroke', state.color);

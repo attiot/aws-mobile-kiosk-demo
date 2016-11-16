@@ -23,14 +23,14 @@
 
             <dt>Status: <span class=led-status>{{lockerService.ledStatus}}</span></dt>
             <dd (click)="lockerService.toggleLock()">
-                <img [src]="'assets/' + lockerService.ledStatus + '.png'">
+                <img style="padding-left: 40px; cursor: pointer;" [src]="'assets/' + lockerService.ledStatus + '.png'">
             </dd>
 
-            <dt>Power Save</dt>
-            <dd>
+            <dt style="line-height: 40px;">Power Save</dt>
+            <dd style="margin-left: -85px; font-size: 12px;">
                 H <input type=number value={{lockerService.saveTimerHour}}>
                 M <input type=number value={{lockerService.saveTimerMin}}>
-                <button>Set</button>
+                <button class=set-power-save>Set</button>
             </dd>
         </dl>
     </section>
