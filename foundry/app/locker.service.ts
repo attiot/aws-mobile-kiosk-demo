@@ -46,10 +46,10 @@ export class LockerService {
                 this.saveTimerHour = payload.T / 60 / 60;
                 this.saveTimerMin = +payload.t;
                 if (0 === +payload.strip) {
-                    this.deviceList.starterKit = payload.data[1].p >= 30 ? 1 : 0;
+                    this.deviceList.starterKit = payload.data.some((datum: any) => datum.p >= 30) ? 1 : 0;
                 } else {
                     this.deviceList.echoDot = payload.data[0].p >= 30 ? 1 : 0;
-                    this.deviceList.fireStick = payload.data[3].p >= 30 ? 1 : 0;
+                    this.deviceList.fireStick = payload.data[3].p >= 30 || payload.data[2].p >= 30 ? 1 : 0;
                 }
 
                 this.lockerData.next({
