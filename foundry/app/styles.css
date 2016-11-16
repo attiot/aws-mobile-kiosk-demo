@@ -2,12 +2,26 @@
     box-sizing: border-box;
 }
 body {
-    font-weight: normal;
     background-color: #3591C0;
+    padding: 0;
+    margin: 0;
+}
+main {
+    font-weight: normal;
     font-family: Brandon;
     color: white;
-    padding: 40px 120px 10px 120px;
+    padding: 20px 40px 10px 120px;
     text-transform: uppercase;
+}
+
+.app-header {
+    padding: 10px;
+    background-color: #ebedf3;
+}
+.app-header img:first-child {
+    padding-right: 20px;
+    border-right: 1px solid #9b9b9b;
+    margin-right: 15px;
 }
 
 .title {
@@ -42,7 +56,7 @@ body {
 
 .settings {
     position: fixed;
-    bottom: 0;
+    bottom: 55px;
 }
 
 .settings .title {
@@ -106,4 +120,16 @@ body {
     position: absolute;
     top: 362px;
     left: 238px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    background-color: #ebedf3;
+    height: 40px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 13px;
 }
