@@ -2,12 +2,26 @@
     box-sizing: border-box;
 }
 body {
-    font-weight: normal;
     background-color: #3591C0;
+    padding: 0;
+    margin: 0;
+}
+main {
+    font-weight: normal;
     font-family: Brandon;
     color: white;
-    padding: 40px 120px 10px 120px;
+    padding: 20px 40px 10px 120px;
     text-transform: uppercase;
+}
+
+.app-header {
+    padding: 10px;
+    background-color: #ebedf3;
+}
+.app-header img:first-child {
+    padding-right: 20px;
+    border-right: 1px solid #9b9b9b;
+    margin-right: 15px;
 }
 
 .title {
@@ -42,7 +56,7 @@ body {
 
 .settings {
     position: fixed;
-    bottom: 0;
+    bottom: 55px;
 }
 
 .settings .title {
@@ -53,15 +67,21 @@ body {
     border-top: 1px solid rgba(215, 215, 215, .5);
     padding-top: 20px;
     overflow: hidden;
+    font-size: 20px;
 }
 
 .settings-list dt {
     display: inline-block;
     vertical-align: middle;
+    height: 45px;
+    width: 270px;
+    font-weight: normal;
 }
 .settings-list dd {
     display: inline;
     vertical-align: middle;
+    text-align: center;
+    width: 300px;
 }
 
 .settings-list dd::after {
@@ -73,11 +93,50 @@ body {
     display: inline-block;
     height: 31.5px;
     margin: 2px;
+    border-radius: 3px;
+}
+
+.led-status {
+    font-weight: bold;
+}
+
+input[type=number] {
+    width: 60px;
+    height: 35px;
+    font-size: 18px;
+    color: white;
+    background-color: rgba(215, 215, 215, .2);
+    border: 0;
+    text-align: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 2px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.set-power-save {
+    width: 72px;
+    height: 35px;
+    margin: 0;
+    margin-top: -1px;
+    padding: 0;
+    background-color: #4a4a4a;
+    border-radius: 2px;
+    font-size: 18px;
+    color: white;
+    border: 0;
+    font-family: Brandon;
+    text-transform: uppercase;
 }
 
 .circle-container {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
     display: inline-block;
     vertical-align: middle;
     position: relative;
@@ -106,4 +165,16 @@ body {
     position: absolute;
     top: 362px;
     left: 238px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    font-family: sans-serif;
+    font-size: 12px;
+    background-color: #ebedf3;
+    height: 40px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 13px;
 }
