@@ -41,7 +41,7 @@ export class LockerService {
             let payload: any = JSON.parse(message.payloadString).state.desired;
 
             if ('proximity' === payload.report) {
-                this.ledStatus = !!payload.led ? 'locked' : 'unlocked';
+                this.ledStatus = !!payload.led ? 'unlocked' : 'locked';
                 this.batteryLife = Math.round(100 * (1500 - payload.seq) / 1500);
                 this.saveTimerHour = payload.T / 60 / 60;
                 this.saveTimerMin = +payload.t;
@@ -75,7 +75,7 @@ export class LockerService {
 
     toggleLock() {
         this.client.send('$aws/things/test-locker/shadow/update',
-            JSON.stringify({state: {desired: {led: 'locked' === this.ledStatus ? 0 : 1}}}), 0, false);
+            JSON.stringify({state: {desired: {led: 'locked' === this.ledStatus ? 1 : 0}}}), 0, false);
 
         // Retrieve updates to the device shadow that we just sent
         this.client.send('$aws/things/test-locker/shadow/get', '', 0, false);
