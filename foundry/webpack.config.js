@@ -27,7 +27,7 @@ const plugins = [
     }),
 
     new webpack.DefinePlugin({
-        'process.env': JSON.stringify(process.env),
+        "process.env": JSON.stringify(process.env),
     }),
 
     new webpack.ContextReplacementPlugin(
@@ -54,7 +54,8 @@ if (process.env.HASH_FILES) {
     plugins.push(new ExtractTextPlugin("[name].[hash].css"));
 }
 else {
-    plugins.push(new ExtractTextPlugin("[name].css"));
+    plugins.push(new webpack.NamedModulesPlugin());
+
 }
 
 
@@ -88,29 +89,30 @@ module.exports = {
         loaders: [
             {
                 test: /\.json$/,
-                loader: "json"
+                loader: "json-loader"
             },
             {
                 test: /\.ts$/,
-                loaders: ["ts", "angular2-template-loader"]
+                loaders: ["ts-loader", "angular2-template-loader"]
             },
             {
                 test: /\.html$/,
-                loader: "html"
+                loader: "html-loader"
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file?name=assets/[name].[hash].[ext]"
+                loader: "file-loader?name=assets/[name].[hash].[ext]"
             },
             {
                 test: /\.css$/,
                 exclude: root("src", "app"),
-                loader: ExtractTextPlugin.extract({fallbackLoader: "style", loader: "css?sourceMap"})
+                // loader: ExtractTextPlugin.extract({fallbackLoader: "style-loader", loader: "css-loader?sourceMap"})
+                loader: "style-loader!css-loader?sourceMap",
             },
             {
                 test: /\.css$/,
                 include: root("src", "app"),
-                loader: "raw"
+                loader: "raw-loader"
             },
         ]
     },
