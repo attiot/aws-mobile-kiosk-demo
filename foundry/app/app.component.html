@@ -17,7 +17,7 @@
             <dt>Battery:</dt>
             <dd style="position: relative;">
                 <img src="../assets/empty-battery.png" style="position: absolute; z-index: -1;">
-                <div class=battery-life [style.width]="lockerService.batteryLife + 8"
+                <div class=battery-life [style.width]="lockerService.batteryLife + 8 + 'px'"
                 [style.backgroundColor]="calculateBatteryBg(lockerService.batteryLife)"></div>
             </dd>
 

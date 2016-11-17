@@ -40,11 +40,20 @@ export class LockerService {
         this.client.onMessageArrived = (message: Paho.MQTT.Message) => {
             let payload: any = JSON.parse(message.payloadString).state.desired;
 
-            if ('proximity' === payload.report) {
+            if (payload.hasOwnProperty('led')) {
                 this.ledStatus = !!payload.led ? 'unlocked' : 'locked';
-                this.batteryLife = Math.round(100 * (1500 - payload.seq) / 1500);
+            }
+
+            if (payload.T && payload.t) {
                 this.saveTimerHour = payload.T / 60 / 60;
                 this.saveTimerMin = +payload.t;
+            }
+
+            if (payload.hasOwnProperty('seq')) {
+                this.batteryLife = Math.round(100 * (1500 - (payload.seq || 0)) / 1500);
+            }
+
+            if ('proximity' === payload.report) {
                 if (0 === +payload.strip) {
                     this.deviceList.starterKit = payload.data.some((datum: any) => datum.p >= 30) ? 1 : 0;
                 } else {
